@@ -1,0 +1,327 @@
+/* Hide Default Navbar on Mobile */
+@media screen and (max-width: 768px) {
+    .navbar {
+        display: none;
+    }
+}
+/* Hide Menu Button by Default */
+#menu-button {
+    display: none; /* Hides it by default */
+    position: fixed;
+    top: 40px;
+    left: 15px;
+    width: 55px;
+    height: 55px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 3000;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Show Menu Button Only on Mobile (768px or Smaller) */
+@media screen and (max-width: 768px) {
+    #menu-button {
+        display: flex !important; /* Ensure it overrides any previous rules */
+    }
+}
+
+/* Force Hide on Larger Screens */
+@media screen and (min-width: 769px) {
+    #menu-button {
+        display: none !important; /* Forces it to be hidden on larger screens */
+    }
+}
+
+/* Hamburger Lines */
+#menu-button div {
+    width: 28px;
+    height: 3px;
+    background: black;
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+    margin: 2px 0; /* Slightly closer spacing */
+}
+
+/* Transform Into "X" When Active */
+#menu-button.open div:nth-child(1) {
+    transform: translateY(6px) rotate(45deg); /* Slightly adjusted to look even */
+}
+
+#menu-button.open div:nth-child(2) {
+    opacity: 0; /* Hide middle line */
+}
+
+#menu-button.open div:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg); /* Adjusted to match the first line */
+}
+
+
+/* Sidebar Menu */
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Hidden by default */
+    width: 250px;
+    height: 100%;
+    background: white;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: left 0.3s ease-in-out;
+    padding-top: 50px;
+}
+
+/* Sidebar Links */
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+#sidebar ul li {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+#sidebar ul li a {
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* Sidebar Icon Styling */
+.nav-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Show Sidebar When Open */
+.sidebar-open {
+    left: 0 !important;
+}
+/* Make Video Slider Responsive */
+@media screen and (max-width: 768px) {
+    #video-slider-container {
+        width: 100% !important; /* Force it to fit */
+        height: auto !important; /* Adjust height */
+        overflow: hidden;
+    }
+
+    .video-slider {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .video-slide {
+        width: 100%;
+        height: auto;
+        object-fit: contain; /* Ensures no cropping */
+    }
+}
+
+/* Sidebar Menu */
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Hidden by default */
+    width: 250px;
+    height: 100%;
+    background: white;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 1999; /* Keeps it behind the menu button */
+    transition: left 0.3s ease-in-out;
+    padding-top: 50px;
+}
+
+/* Ensure Google Maps Embed is Fully Responsive */
+.google-maps {
+    position: relative;
+    width: 100%; /* Full width on all devices */
+    max-width: 400px; /* Prevents it from being too big */
+    height: 250px; /* Smaller height to fit mobile screens */
+    margin: auto; /* Centers the map */
+    overflow: hidden;
+    border-radius: 10px; /* Optional: Rounded corners for a modern look */
+}
+
+/* Make sure the iframe fits properly */
+.google-maps iframe {
+    width: 100% !important;
+    height: 100% !important;
+    border: none;
+}
+
+/* Adjust Google Maps on Mobile */
+@media screen and (max-width: 768px) {
+    .google-maps {
+        max-width: 100%; /* Ensure it fits within mobile screens */
+        height: 200px; /* Reduce height for better fit */
+    }
+}
+/* Prevent Side Scrolling on Mobile */
+@media screen and (max-width: 768px) {
+    body, html {
+        overflow-x: hidden !important;
+    }
+}
+
+/* General Mobile Fixes */
+@media screen and (max-width: 768px) {
+    body {
+        overflow-x: hidden !important; /* Prevents sideways scrolling */
+    }
+
+    main, .container {
+        width: 100% !important;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    img, video {
+        max-width: 100%;
+        height: auto;
+    }
+}
+/* Grid Layout for Gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 images per row */
+    gap: 10px; /* Space between images */
+    margin: 10px auto;
+    width: 90%; /* Ensure it stays within screen width */
+}
+
+/* Gallery Image Styling */
+.gallery-item {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1; /* Forces a square aspect ratio */
+    object-fit: cover;
+    border-radius: 10px; /* Rounded corners */
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Adjust Grid for Smaller Screens */
+@media screen and (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr); /* 2 images per row on mobile */
+        gap: 5px; /* Reduce spacing for better fit */
+    }
+
+    .gallery-item {
+        border-radius: 5px; /* Smaller rounding for mobile */
+    }
+}
+
+/* Adjust for Very Small Screens */
+@media screen and (max-width: 480px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr); /* 2 images per row on very small screens */
+        gap: 5px;
+    }
+}
+/* Responsive Styling for Mobile */
+@media screen and (max-width: 768px) {
+    #terms {
+        margin: 30px 10px;
+        padding: 15px;
+    }
+
+    #terms h1 {
+        font-size: 26px;
+    }
+
+    #terms h2 {
+        font-size: 20px;
+    }
+
+    #terms p,
+    #terms ul {
+        font-size: 14px;
+    }
+}
+/* Sidebar Footer (Holds the Terms of Use Link) */
+.sidebar-footer {
+    position: absolute;
+    bottom: 20px; /* Moves it to the bottom */
+    width: 100%;
+    text-align: center;
+}
+
+/* Terms of Use Link Styling */
+.sidebar-terms {
+    font-family: 'Montserrat-Thin', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #d4af37; /* Gold color */
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 0;
+}
+
+.sidebar-terms:hover {
+    text-decoration: underline;
+}
+@media screen and (min-width: 769px) {
+    .sidebar-footer {
+        display: none;
+    }
+}
+/* Sidebar Footer (Holds the Terms of Use Link) */
+.sidebar-footer {
+    position: absolute;
+    bottom: 55px; /* Ensures it stays at the bottom */
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    background: white; /* Ensure visibility inside sidebar */
+}
+
+/* Terms of Use Link Styling */
+.sidebar-terms {
+    font-family: 'Montserrat-Thin', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #d4af37; /* Gold color */
+    text-decoration: none;
+    display: block; /* Ensures full width visibility */
+    padding: 12px 0;
+}
+
+.sidebar-terms:hover {
+    text-decoration: underline;
+    color: #b39429; /* Slightly darker gold on hover */
+}
+.video-slide {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    pointer-events: none; /* Prevent Safari from blocking playback */
+}
+/* Move buttons under the X and align left */
+#sidebar ul {
+    margin-top: 60px; /* Moves menu items below the close button */
+    padding-left: 15px; /* Aligns items to the left */
+}
+
+#sidebar ul li {
+    text-align: left; /* Ensure text is aligned left */
+    padding: 10px 0; /* Keep spacing between items */
+}
+
+#sidebar ul li a {
+    justify-content: flex-start; /* Align text and icons to the left */
+    padding-left: 5px; /* Small spacing for better alignment */
+}

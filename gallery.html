@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Story Beauty - Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobilestyles.css">
+    <link rel="icon" type="image/png" href="media/favicon.png">
+</head>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const fullscreenVideos = document.querySelectorAll(".lightbox video");
+    
+        fullscreenVideos.forEach(video => {
+            video.classList.add("fullscreen-video");
+    
+            video.addEventListener("loadedmetadata", function () {
+                adjustVideoSize(video);
+            });
+    
+            window.addEventListener("resize", function () {
+                adjustVideoSize(video);
+            });
+        });
+    
+        function adjustVideoSize(video) {
+            const screenWidth = window.innerWidth * 0.9;
+            const screenHeight = window.innerHeight * 0.9;
+            
+            if (video.videoWidth > screenWidth || video.videoHeight > screenHeight) {
+                video.style.maxWidth = `${screenWidth}px`;
+                video.style.maxHeight = `${screenHeight}px`;
+            } else {
+                video.style.maxWidth = `${video.videoWidth}px`;
+                video.style.maxHeight = `${video.videoHeight}px`;
+            }
+        }
+    });
+    </script>
+    
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const fullscreenImages = document.querySelectorAll(".lightbox img");
+    
+        fullscreenImages.forEach(img => {
+            img.classList.add("fullscreen-image");
+            
+            img.addEventListener("load", function () {
+                adjustImageSize(img);
+            });
+    
+            window.addEventListener("resize", function () {
+                adjustImageSize(img);
+            });
+        });
+    
+        function adjustImageSize(img) {
+            const screenWidth = window.innerWidth * 0.9;
+            const screenHeight = window.innerHeight * 0.9;
+            
+            if (img.naturalWidth > screenWidth || img.naturalHeight > screenHeight) {
+                img.style.maxWidth = `${screenWidth}px`;
+                img.style.maxHeight = `${screenHeight}px`;
+            } else {
+                img.style.maxWidth = `${img.naturalWidth}px`;
+                img.style.maxHeight = `${img.naturalHeight}px`;
+            }
+        }
+    });
+    </script>
+    
+<body>
+    <div class="gold-bar">
+        <p id="sliding-text"></p>
+    </div>
+    <header class="top-header">
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="logo.png" alt="Business Logo" class="logo">
+            </a>
+        </div>
+    
+      <!-- Social Media Section (Now inside the header) -->
+      <div class="social-buttons">
+        <a href="https://wa.me/447931155573" target="_blank">
+            <img src="media/whatsapp.png" alt="WhatsApp" class="social-button">
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61571671768852" target="_blank">
+            <img src="media/facebook.png" alt="Facebook" class="social-button">
+        </a>
+        <a href="https://www.instagram.com/__storybeauty__/" target="_blank">
+            <img src="media/instagram.png" alt="Instagram" class="social-button">
+        </a>
+        <a href="https://maps.app.goo.gl/DxSnkGeABtTzDQPh8" target="_blank">
+            <img src="media/google.png" alt="Google" class="social-button">
+        </a>
+        <a href="https://www.tiktok.com/@__storybeauty__?_t=ZN-8v1IGNgDGER&_r=1" target="_blank">
+            <img src="media/tiktok.png" alt="TikTok" class="social-button">
+        </a>
+    </div>
+    
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="index.html"><img src="media/icons/home.png" class="nav-icon"> Home</a></li>
+                <li><a href="services.html"><img src="media/icons/book.png" class="nav-icon"> Book Now</a></li>
+                <li><a href="gallery.html"><img src="media/icons/gallery.png" class="nav-icon"> Gallery</a></li>
+                <li><a href="terms.html"><img src="media/icons/terms.png" class="nav-icon"> Booking Policy</a></li>
+                <li><a href="contact.html"><img src="media/icons/contact.png" class="nav-icon"> Contact Us</a></li>
+            </ul>
+        </nav>
+        
+    </header>
+
+<main>
+    <section id="portfolio">
+        <div class="category-container lashes-container" data-category="lashes">
+            <h3 class="category-title">Flawless Lashes:</h3>
+            <div class="gallery lashes-gallery">
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes1.png" alt="Facial 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes2.PNG" alt="Facial 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes3.PNG" alt="Facial 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes4.PNG" alt="Facial 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes5.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes6.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes7.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes8.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes9.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes10.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes11.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes12.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes13.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes14.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes15.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes16.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes17.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes18.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes19.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes20.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes21.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes22.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes23.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes24.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes25.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes26.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes27.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes28.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes29.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes30.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes13.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes32.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes33.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes34.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes35.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes36.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes37.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes38.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes39.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes40.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="media/lashes/lashes41.PNG" alt="Facial 5">
+                </div>
+                <div class="gallery-item video">
+                    <video src="media/lashes/1.MP4"></video>
+                    <div class="play-icon">&#9658;</div> <!-- Play icon overlay -->
+                </div>
+                <div class="gallery-item video">
+                    <video src="media/lashes/2.MP4"></video>
+                    <div class="play-icon">&#9658;</div> <!-- Play icon overlay -->
+                </div>
+                <div class="gallery-item video">
+                    <video src="media/lashes/3.MP4"></video>
+                    <div class="play-icon">&#9658;</div> <!-- Play icon overlay -->
+                </div>
+                <div class="gallery-item video">
+                    <video src="media/lashes/4.MP4"></video>
+                    <div class="play-icon">&#9658;</div> <!-- Play icon overlay -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Gallery Section -->
+        <section id="portfolio">
+            <div class="category-container massages-container" data-category="massages">
+                <h3 class="category-title">Massage Services:</h3>
+                <div class="gallery massages-gallery">
+                    <div class="gallery-item">
+                        <img src="media/massages/massage1.PNG" alt="Massage 1">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/massages/massage2.PNG" alt="Massage 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/massages/massage3.PNG" alt="Massage 3">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/massages/massage4.PNG" alt="Massage 4">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/massages/massage5.PNG" alt="Massage 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/massages/massage6.PNG" alt="Massage 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/massages/massage7.PNG" alt="Massage 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/massages/massage8.PNG" alt="Massage 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/massages/massage9.PNG" alt="Massage 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/massages/massage10.PNG" alt="Massage 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/massages/massage11.PNG" alt="Massage 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/massages/massage12.PNG" alt="Massage 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/massages/massage13.PNG" alt="Massage 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/massages/massage14.PNG" alt="Massage 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/massages/massage15.PNG" alt="Massage 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/massages/massage16.PNG" alt="Massage 5">
+                    </div>
+                    <div class="gallery-item video">
+                        <video src="media/massages/massagevideo1.MP4"></video>
+                        <div class="play-icon">&#9658;</div> <!-- Play icon overlay -->
+                    </div>
+                    <div class="gallery-item video">
+                        <video src="media/massages/massagevideo2.mov"></video>
+                        <div class="play-icon">&#9658;</div> <!-- Play icon overlay -->
+                    </div>
+                    <div class="gallery-item video">
+                        <video src="media/massages/massagevideo3.mov"></video>
+                        <div class="play-icon">&#9658;</div> <!-- Play icon overlay -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio">
+            <div class="category-container waxing-container" data-category="waxing">
+                <h3 class="category-title">Waxing Services:</h3>
+                <div class="gallery waxing-gallery">
+                    <div class="gallery-item">
+                        <img src="media/waxing/waxing1.PNG" alt="Waxing 1">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/waxing/waxing2.PNG" alt="Waxing 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/waxing/waxing3.PNG" alt="Waxing 3">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/waxing/waxing4.PNG" alt="Waxing 4">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/waxing/waxing5.PNG" alt="Waxing 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/waxing/waxing5.PNG" alt="Waxing 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/waxing/waxing6.PNG" alt="Waxing 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/waxing/waxing7.PNG" alt="Waxing 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/waxing/waxing8.PNG" alt="Waxing 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/waxing/waxing9.PNG" alt="Waxing 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/waxing/waxing10.PNG" alt="Waxing 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/waxing/waxing11.PNG" alt="Waxing 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/waxing/waxing12.PNG" alt="Waxing 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/waxing/waxing13.PNG" alt="Waxing 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/waxing/waxing14.PNG" alt="Waxing 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/waxing/waxing15.PNG" alt="Waxing 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/waxing/waxing16.PNG" alt="Waxing 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/waxing/waxing17.PNG" alt="Waxing 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/waxing/waxing18.PNG" alt="Waxing 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/waxing/waxing19.PNG" alt="Waxing 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/waxing/waxing20.PNG" alt="Waxing 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/waxing/waxing21.PNG" alt="Waxing 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/waxing/waxing22.PNG" alt="Waxing 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/waxing/waxing23.PNG" alt="Waxing 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/waxing/waxing24.PNG" alt="Waxing 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/waxing/waxing25.PNG" alt="Waxing 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/waxing/waxing26.PNG" alt="Waxing 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/waxing/waxing27.PNG" alt="Waxing 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/waxing/waxing28.PNG" alt="Waxing 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/waxing/waxing29.PNG" alt="Waxing 5">
+                    </div>
+                    <div class="gallery-item video">
+                        <video src="media/waxing/wv1.MP4"></video>
+                        <div class="play-icon">&#9658;</div> <!-- Play icon overlay -->
+                    </div>
+                    <div class="gallery-item video">
+                        <video src="media/waxing/wv2.MP4"></video>
+                        <div class="play-icon">&#9658;</div> <!-- Play icon overlay -->
+                    </div>
+                    <div class="gallery-item video">
+                        <video src="media/waxing/wv3.MP4"></video>
+                        <div class="play-icon">&#9658;</div> <!-- Play icon overlay -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    
+        <section id="portfolio">
+            <section>
+            <div class="category-container lashes-container" data-category="lashes">
+                <h3 class="category-title">Luxury Facial Treatments:</h3>
+                <div class="gallery facial-gallery">
+    
+                    <div class="gallery-item">
+                        <img src="media/facials/facial2.PNG" alt="Facial 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/facials/facial3.PNG" alt="Facial 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/facials/facial4.PNG" alt="Facial 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/facials/facial5.PNG" alt="Facial 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/facials/facial6.PNG" alt="Facial 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/facials/facial7.PNG" alt="Facial 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/facials/facial8.PNG" alt="Facial 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/facials/facial9.PNG" alt="Facial 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/facials/facial10.PNG" alt="Facial 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/facials/facial11.PNG" alt="Facial 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/facials/facial12.PNG" alt="Facial 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/facials/facial13.PNG" alt="Facial 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/facials/facial14.PNG" alt="Facial 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/facials/facial15.PNG" alt="Facial 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/facials/facial16.PNG" alt="Facial 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/facials/facial17.PNG" alt="Facial 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/facials/facial18.PNG" alt="Facial 2">
+                    </div>
+                    <div class="gallery-item video">
+                        <video src="media/facials/fv1.MP4"></video>
+                        <div class="play-icon">&#9658;</div> <!-- Play icon overlay -->
+                    </div>
+                    <div class="gallery-item video">
+                        <video src="media/facials/fv3.MP4"></video>
+                        <div class="play-icon">&#9658;</div> <!-- Play icon overlay -->
+                    </div>
+                    <div class="gallery-item video">
+                        <video src="media/facials/fv4.MP4"></video>
+                        <div class="play-icon">&#9658;</div> <!-- Play icon overlay -->
+                    </div>
+                </div>
+            </div>
+            </section>
+        </section>
+    </main>
+
+   <!-- Lightbox for Fullscreen View -->
+   <div class="lightbox">
+    <button class="close">&times;</button>
+    <button class="prev">&#10094;</button>
+    <div class="lightbox-content">
+        <img id="lightbox-image" src="" alt="Fullscreen Image">
+        <video id="lightbox-video" controls></video>
+    </div>
+    <button class="next">&#10095;</button>
+</div>
+</div>
+<div class="terms-link-container">
+    <a href="terms.html" class="terms-link">Terms of Use</a>
+</div>
+    <footer>
+        <p>&copy; 2025 Story Beauty. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="fullscreenmode.js"></script>
+    <script src="goldbar.js"></script>
+    <script src="cookies.js"></script>
+    <script src="sidebar.js"></script>
+<a href="https://wa.me/447931155573" target="_blank" class="whatsapp-float">
+  <img src="media/getintouch.png" alt="Get in touch" class="whatsapp-float-icon">
+</a>
+</body>
+</html>

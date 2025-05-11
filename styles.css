@@ -1,0 +1,2390 @@
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #CBA135; /* Reflective Gold for text */
+    background: url('media/header.png') no-repeat center center fixed; /* Background image */
+    background-repeat: repeat;
+    background-size: auto;
+    background-position: top left;
+    text-align: center;
+    background-color: #1E1E1E; /* Backup deep black color for browsers without image support */
+}
+header {
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+    color: white;
+    padding: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative; /* To ensure layout remains stable */
+}
+/* Custom Fonts */
+@font-face {
+    font-family: 'LastChristmasPERSONALUSE-Regular';
+    src: url('fonts/LastChristmasPERSONALUSE-Regular.woff2') format('woff2'),
+         url('fonts/LastChristmasPERSONALUSE-Regular.woff') format('woff'),
+         url('fonts/LastChristmas_PERSONAL_USE_ONLY.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.curvy-font {
+    font-family: 'LastChristmasPERSONALUSE-Regular', sans-serif;
+}
+
+.curvymax-font {
+    font-family: 'LastChristmasPERSONALUSE-Regular', sans-serif;
+}
+
+@font-face {
+    font-family: 'PlaywriteAUSA-Regular';
+    src: url('fonts/PlaywriteAUSA-Regular.woff2') format('woff2'),
+         url('fonts/PlaywriteAUSA-Regular.woff') format('woff'),
+         url('fonts/PlaywriteAUSA-VariableFont_wght.tff') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.play-font {
+    font-family: 'PlaywriteAUSA-Regular', sans-serif;
+}
+.gradient-button {
+    display: inline-flex; /* Ensures proper alignment for button content */
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px; /* Space inside the button */
+    border: none;
+    border-radius: 50px; /* Fully rounded corners */
+    font-size: 16px;
+    font-family: 'Arial', sans-serif; /* Keep the custom font */
+    font-weight: bold;
+    color: white; /* Button text color */
+    cursor: pointer;
+    text-decoration: none; /* Remove underline */
+    position: relative; /* Required for box-shadow */
+    background: linear-gradient(45deg, #B39429, #D4AF37); /* Gold gradient */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth interactions */
+}
+
+.gradient-button:hover {
+    transform: translateY(-2px); /* Lift effect on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4), 0 4px 6px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+    background: linear-gradient(45deg, #D4AF37, #B39429); /* Reverse gradient on hover */
+}
+
+.gradient-button:active {
+    transform: translateY(0); /* Reset on click */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+/* Image Grid */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.gallery-item {
+    width: 200px; /* Set a fixed width for images */
+    height: 200px; /* Set a fixed height for images */
+    object-fit: cover; /* Ensures images are cropped correctly */
+    border-radius: 15px; /* Rounded corners */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth effects */
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4); /* Shadow on hover */
+}
+
+/* Lightbox General Styles */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Lightbox Content */
+.lightbox img, .lightbox video {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    object-fit: contain;
+    background: black;
+}
+
+/* Lightbox Navigation Buttons */
+.lightbox .prev, .lightbox .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.lightbox .prev { left: 10px; }
+.lightbox .next { right: 10px; }
+
+/* Close Button */
+.lightbox .close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+/* Main Content */
+main {
+    padding: 20px;
+    margin: 20px auto; /* Center and add spacing */
+    max-width: 1200px; /* Limit width for better readability */
+    background-color: rgba(255, 255, 255, 0.8); /* Lighter translucent white background */
+    border-radius: 15px; /* Rounded corners for a polished look */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+.social-button {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+
+#social-media {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.social-button:hover {
+    transform: scale(1.1);
+}
+
+#social-media h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#social-media p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #555;
+}
+.gradient-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px; /* Space inside the button */
+    border: none;
+    border-radius: 50px; /* Fully rounded corners */
+    font-size: 16px;
+    font-family: 'Arial', sans-serif; /* Keep the custom font */
+    font-weight: bold;
+    color: white; /* Button text color */
+    cursor: pointer;
+    text-decoration: none; /* Remove underline */
+    position: relative; /* Required for box-shadow */
+    margin: 10px; /* Add spacing between buttons */
+    background: linear-gradient(45deg, #D4A017, #FFD700); /* Adjusted gradient */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth interactions */
+}
+
+.gradient-button:hover {
+    transform: translateY(-2px); /* Lift effect on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4), 0 4px 6px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+    background: linear-gradient(45deg, #FFD700, #D4A017); /* Reverse gradient on hover */
+}
+
+/* General section styling to reduce space */
+section {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+/* Category titles styling */
+.category-title {
+    margin-bottom: 10px;
+    font-size: 1.5rem; /* Adjust font size if necessary */
+    text-align: center;
+}
+
+/* Gallery styling */
+.gallery {
+    display: grid; /* Use grid layout for better responsiveness */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Flexible columns */
+    gap: 10px; /* Space between images */
+    margin: 10px auto; /* Center the gallery */
+    width: 90%; /* Ensure the gallery fits well within the viewport */
+}
+
+/* Gallery items styling */
+.gallery-item {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Lightbox styling */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 5px;
+}
+
+/* Lightbox close button */
+.lightbox .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+/* Lightbox navigation buttons */
+.lightbox .prev,
+.lightbox .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.lightbox .prev {
+    left: 10px;
+}
+
+.lightbox .next {
+    right: 10px;
+}
+
+/* Button container spacing */
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px auto;
+}
+
+/* Grid image styling */
+.gallery-item {
+    width: 100%; /* Images scale with the grid cell */
+    height: 150px; /* Fixed height for uniform size */
+    object-fit: cover; /* Ensures images are cropped uniformly */
+    border-radius: 10px; /* Rounded corners */
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #CBA135; /* Reflective Gold for text */
+    background: url('media/header.png') no-repeat center center fixed; /* Background image */
+    background-size: cover; /* Ensures the image covers the screen */
+    text-align: center;
+    background-color: #1E1E1E; /* Backup deep black color for browsers without image support */
+}
+header {
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+    color: white;
+    padding: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative; /* To ensure layout remains stable */
+}
+/* Custom Fonts */
+@font-face {
+    font-family: 'LastChristmasPERSONALUSE-Regular';
+    src: url('fonts/LastChristmasPERSONALUSE-Regular.woff2') format('woff2'),
+         url('fonts/LastChristmasPERSONALUSE-Regular.woff') format('woff'),
+         url('fonts/LastChristmas_PERSONAL_USE_ONLY.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.curvy-font {
+    font-family: 'LastChristmasPERSONALUSE-Regular', sans-serif;
+}
+
+.curvymax-font {
+    font-family: 'LastChristmasPERSONALUSE-Regular', sans-serif;
+    font-size: 36px; /* Adjust the value as needed */
+}
+
+@font-face {
+    font-family: 'PlaywriteAUSA-Regular';
+    src: url('fonts/PlaywriteAUSA-Regular.woff2') format('woff2'),
+         url('fonts/PlaywriteAUSA-Regular.woff') format('woff'),
+         url('fonts/PlaywriteAUSA-VariableFont_wght.tff') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.play-font {
+    font-family: 'PlaywriteAUSA-Regular', sans-serif;
+}
+
+.gradient-button {
+    display: inline-flex; /* Ensures proper alignment for button content */
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px; /* Space inside the button */
+    border: none;
+    border-radius: 50px; /* Fully rounded corners */
+    font-size: 16px;
+    font-family: 'Arial', sans-serif; /* Keep the custom font */
+    font-weight: bold;
+    color: white; /* Button text color */
+    cursor: pointer;
+    text-decoration: none; /* Remove underline */
+    position: relative; /* Required for box-shadow */
+    background: linear-gradient(45deg, #B39429, #D4AF37); /* Gold gradient */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth interactions */
+}
+
+.gradient-button:hover {
+    transform: translateY(-2px); /* Lift effect on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4), 0 4px 6px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+    background: linear-gradient(45deg, #D4AF37, #B39429); /* Reverse gradient on hover */
+}
+
+.gradient-button:active {
+    transform: translateY(0); /* Reset on click */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+/* Image Grid */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.gallery-item {
+    width: 200px; /* Set a fixed width for images */
+    height: 200px; /* Set a fixed height for images */
+    object-fit: cover; /* Ensures images are cropped correctly */
+    border-radius: 15px; /* Rounded corners */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth effects */
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4); /* Shadow on hover */
+}
+
+/* Fullscreen Lightbox */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Dark overlay */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 15px;
+}
+
+.lightbox-controls {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.lightbox-controls .control {
+    background: rgba(255, 255, 255, 0.5);
+    color: black;
+    font-size: 30px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 10px;
+    margin: 0 20px;
+    outline: none;
+    transition: background 0.3s;
+}
+
+.lightbox-controls .control:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.lightbox .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+/* Main Content */
+main {
+    padding: 20px;
+    margin: 20px auto; /* Center and add spacing */
+    max-width: 1200px; /* Limit width for better readability */
+    background-color: rgba(255, 255, 255, 0.8); /* Lighter translucent white background */
+    border-radius: 15px; /* Rounded corners for a polished look */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+.social-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-button {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.social-button:hover {
+    transform: scale(1.1);
+}
+#social-media {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-button {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.social-button:hover {
+    transform: scale(1.1);
+}
+
+#social-media h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#social-media p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #555;
+}
+.gradient-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px; /* Space inside the button */
+    border: none;
+    border-radius: 50px; /* Fully rounded corners */
+    font-size: 16px;
+    font-family: 'Arial', sans-serif; /* Keep the custom font */
+    font-weight: bold;
+    color: white; /* Button text color */
+    cursor: pointer;
+    text-decoration: none; /* Remove underline */
+    position: relative; /* Required for box-shadow */
+    margin: 10px; /* Add spacing between buttons */
+    background: linear-gradient(45deg, #D4A017, #FFD700); /* Adjusted gradient */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth interactions */
+}
+
+.gradient-button:hover {
+    transform: translateY(-2px); /* Lift effect on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4), 0 4px 6px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+    background: linear-gradient(45deg, #FFD700, #D4A017); /* Reverse gradient on hover */
+}
+#homepage h2.curvymax-font {
+    font-family: 'LastChristmasPERSONALUSE-Regular', sans-serif;
+    font-size: 34px;
+    line-height: 1.4;
+    color: #CBA135;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+    margin-bottom: 15px;
+}
+#homepage h2.play-font {
+    font-family: 'PlaywriteAUSA-Regular', sans-serif; /* Match the font */
+    font-size: 16px; /* Adjust font size for consistency */
+    line-height: 1.6; /* Set proper line spacing */
+    color: #555; /* Use the same subtle gray color */
+    text-shadow: none; /* Remove any shadow effect */
+    font-weight: 400; /* Set normal font weight */
+    margin: 20px 0; /* Add spacing for readability */
+}
+
+#social-media h3 {
+    font-family: 'PlaywriteAUSA-Regular', sans-serif; /* Keep the original font */
+    font-size: 32px; /* Make it larger */
+    line-height: 1.4; /* Adjust spacing for readability */
+    color: #CBA135; /* Restore the reflective gold color */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); /* Subtle shadow for depth */
+    margin-bottom: 15px; /* Add spacing below the heading */
+}
+#social-media h3.curvymax-font {
+    font-family: 'LastChristmasPERSONALUSE-Regular', sans-serif; /* Retain original font */
+    color: #CBA135; /* Reflective gold */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Subtle shadow effect */
+    margin-bottom: 2px; /* Space below heading */
+}
+#social-media h3.curvymax-font {
+    letter-spacing: 1px; /* Subtle spacing between letters */
+}
+#social-media h3.curvymax-font {
+    line-height: 1.3; /* Increase for better readability */
+}
+/* Make each section smaller by reducing vertical padding and margin */
+section {
+    padding-top: 10px; /* Reduced space at the top */
+    padding-bottom: 10px; /* Reduced space at the bottom */
+    margin-top: 10px; /* Reduced space above the section */
+    margin-bottom: 10px; /* Reduced space below the section */
+    box-sizing: border-box; /* Ensure the padding doesn't affect section size */
+}
+
+/* Add spacing under the social media text */
+#social-media p {
+    margin-bottom: 15px; /* Adjust this value for smaller spacing */
+}
+
+/* Optional: Adjust header and footer spacing */
+header, footer {
+    padding: 10px 20px; /* Smaller padding for header/footer */
+}
+/* General section styling to reduce space */
+section {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+/* Category titles styling */
+.category-title {
+    margin-bottom: 10px;
+    font-size: 1.5rem; /* Adjust font size if necessary */
+    text-align: center;
+}
+
+/* Gallery styling */
+.gallery {
+    display: grid; /* Use grid layout for better responsiveness */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Flexible columns */
+    gap: 10px; /* Space between images */
+    margin: 10px auto; /* Center the gallery */
+    width: 90%; /* Ensure the gallery fits well within the viewport */
+}
+
+/* Gallery items styling */
+.gallery-item {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+/* Lightbox styling */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 5px;
+}
+
+/* Lightbox close button */
+.lightbox .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+/* Lightbox navigation buttons */
+.lightbox .prev,
+.lightbox .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.lightbox .prev {
+    left: 10px;
+}
+
+.lightbox .next {
+    right: 10px;
+}
+
+/* Button container spacing */
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px auto;
+}
+
+/* Grid image styling */
+.gallery-item {
+    width: 100%; /* Images scale with the grid cell */
+    height: 150px; /* Fixed height for uniform size */
+    object-fit: cover; /* Ensures images are cropped uniformly */
+    border-radius: 10px; /* Rounded corners */
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #CBA135; /* Reflective Gold for text */
+    background: url('media/header.png') no-repeat center center fixed; /* Background image */
+    background-size: cover; /* Ensures the image covers the screen */
+    text-align: center;
+    background-color: #1E1E1E; /* Backup deep black color for browsers without image support */
+}
+header {
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+    color: white;
+    padding: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative; /* To ensure layout remains stable */
+}
+/* Custom Fonts */
+@font-face {
+    font-family: 'LastChristmasPERSONALUSE-Regular';
+    src: url('fonts/LastChristmasPERSONALUSE-Regular.woff2') format('woff2'),
+         url('fonts/LastChristmasPERSONALUSE-Regular.woff') format('woff'),
+         url('fonts/LastChristmas_PERSONAL_USE_ONLY.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+.gradient-button {
+    display: inline-flex; /* Ensures proper alignment for button content */
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px; /* Space inside the button */
+    border: none;
+    border-radius: 50px; /* Fully rounded corners */
+    font-size: 16px;
+    font-family: 'Arial', sans-serif; /* Keep the custom font */
+    font-weight: bold;
+    color: white; /* Button text color */
+    cursor: pointer;
+    text-decoration: none; /* Remove underline */
+    position: relative; /* Required for box-shadow */
+    background: linear-gradient(45deg, #B39429, #D4AF37); /* Gold gradient */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth interactions */
+}
+
+.gradient-button:hover {
+    transform: translateY(-2px); /* Lift effect on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4), 0 4px 6px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+    background: linear-gradient(45deg, #D4AF37, #B39429); /* Reverse gradient on hover */
+}
+
+.gradient-button:active {
+    transform: translateY(0); /* Reset on click */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+/* Image Grid */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.gallery-item {
+    width: 200px; /* Set a fixed width for images */
+    height: 200px; /* Set a fixed height for images */
+    object-fit: cover; /* Ensures images are cropped correctly */
+    border-radius: 15px; /* Rounded corners */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth effects */
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4); /* Shadow on hover */
+}
+
+/* Fullscreen Lightbox */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Dark overlay */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 15px;
+}
+
+.lightbox-controls {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.lightbox-controls .control {
+    background: rgba(255, 255, 255, 0.5);
+    color: black;
+    font-size: 30px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 10px;
+    margin: 0 20px;
+    outline: none;
+    transition: background 0.3s;
+}
+
+.lightbox-controls .control:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.lightbox .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+/* Main Content */
+.social-buttons {
+    margin-top: 20px;
+}
+
+
+
+
+#social-media {
+    text-align: center;
+    margin-top: 40px;
+}
+
+#social-media h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#social-media p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #555;
+}
+.gradient-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px; /* Space inside the button */
+    border: none;
+    border-radius: 50px; /* Fully rounded corners */
+    font-size: 16px;
+    font-family: 'Arial', sans-serif; /* Keep the custom font */
+    font-weight: bold;
+    color: white; /* Button text color */
+    cursor: pointer;
+    text-decoration: none; /* Remove underline */
+    position: relative; /* Required for box-shadow */
+    margin: 10px; /* Add spacing between buttons */
+    background: linear-gradient(45deg, #D4A017, #FFD700); /* Adjusted gradient */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth interactions */
+}
+
+.gradient-button:hover {
+    transform: translateY(-2px); /* Lift effect on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4), 0 4px 6px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+    background: linear-gradient(45deg, #FFD700, #D4A017); /* Reverse gradient on hover */
+}
+#social-media h3 {
+    font-family: 'PlaywriteAUSA-Regular', sans-serif; /* Keep the original font */
+    font-size: 32px; /* Make it larger */
+    line-height: 1.4; /* Adjust spacing for readability */
+    color: #CBA135; /* Restore the reflective gold color */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6); /* Subtle shadow for depth */
+    margin-bottom: 15px; /* Add spacing below the heading */
+}
+#social-media h3.curvymax-font {
+    font-family: 'LastChristmasPERSONALUSE-Regular', sans-serif;
+    font-size: 34px;
+    line-height: 1.4;
+    color: #CBA135;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+    margin-bottom: 15px;
+}
+
+/* Make each section smaller by reducing vertical padding and margin */
+section {
+    padding-top: 10px; /* Reduced space at the top */
+    padding-bottom: 10px; /* Reduced space at the bottom */
+    margin-top: 10px; /* Reduced space above the section */
+    margin-bottom: 10px; /* Reduced space below the section */
+    box-sizing: border-box; /* Ensure the padding doesn't affect section size */
+}
+
+/* Add spacing under the social media text */
+#social-media p {
+    margin-bottom: 15px; /* Adjust this value for smaller spacing */
+}
+
+/* Optional: Adjust header and footer spacing */
+header, footer {
+    padding: 10px 20px; /* Smaller padding for header/footer */
+}
+/* General section styling to reduce space */
+section {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+/* Category titles styling */
+.category-title {
+    margin-bottom: 10px;
+    font-size: 1.5rem; /* Adjust font size if necessary */
+    text-align: center;
+}
+
+/* Gallery styling */
+.gallery {
+    display: grid; /* Use grid layout for better responsiveness */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Flexible columns */
+    gap: 10px; /* Space between images */
+    margin: 10px auto; /* Center the gallery */
+    width: 90%; /* Ensure the gallery fits well within the viewport */
+}
+
+/* Gallery items styling */
+.gallery-item {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Lightbox styling */
+.lightbox {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Dark
+}
+    .gallery-item {
+    width: 200px; /* Make all images uniform size */
+    height: 200px; /* Square dimensions */
+    object-fit: cover; /* Cropped to fit within square */
+    border-radius: 10px; /* Rounded corners */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 10px; /* Apply same rounded corners */
+}
+.lightbox img {
+    max-width: 90%; /* Allow the image to scale up but maintain aspect ratio */
+    max-height: 90%; /* Prevent the image from exceeding the viewport */
+    object-fit: contain; /* Ensure the entire image fits within the lightbox */
+    border-radius: 10px; /* Rounded corners for consistency */
+    margin: auto; /* Center the image */
+}
+.lightbox {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Dark overlay */
+    justify-content: center; /* Horizontally center items */
+    align-items: center; /* Vertically center items */
+    z-index: 1000; /* Ensure it's above other content */
+}
+.gallery {
+    display: grid; /* Use grid layout for responsiveness */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Flexible columns */
+    gap: 10px; /* Space between images */
+    margin: 10px auto; /* Center the gallery */
+    width: 90%; /* Fit well within the viewport */
+}
+.gallery-item {
+    width: 200px; /* Fixed width for all images */
+    height: 200px; /* Fixed height for a square aspect ratio */
+    object-fit: cover; /* Ensures images are cropped uniformly */
+    border-radius: 10px; /* Rounded corners */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+.gallery-item {
+    width: 250px; /* Larger fixed width for all images */
+    height: 250px; /* Maintain square dimensions */
+    object-fit: cover; /* Ensures images are cropped uniformly */
+    border-radius: 10px; /* Rounded corners */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+.gallery {
+    display: grid; /* Use grid layout for better responsiveness */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Flexible columns */
+    gap: 5px; /* Reduced space between images */
+    margin: 10px auto; /* Center the gallery */
+    width: 90%; /* Fit within the viewport */
+}
+/* Reduce header size */
+header {
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+    color: white;
+    padding: 10px 0; /* Reduced vertical padding */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    position: relative;
+}
+
+/* Adjust logo size */
+.logo {
+    max-width: 100px; /* Reduce logo width */
+    height: auto; /* Maintain aspect ratio */
+}
+/* Reduce header size */
+header {
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+    color: white;
+    padding: 10px 0; /* Reduced vertical padding */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    position: relative;
+    display: flex;
+    align-items: center; /* Vertically align the logo */
+    justify-content: space-between; /* Adjust spacing if needed */
+}
+
+/* Preserve original logo size */
+.logo {
+    width: auto; /* Use original width */
+    height: auto; /* Use original height */
+    max-width: 450px; /* Ensure no scaling */
+    max-height: 250px; /* Ensure no scaling */
+}
+main {
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white to match header */
+    border-radius: 15px; /* Optional: Rounded corners for consistency */
+    padding: 8px; /* Space inside the <main> */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+/* Contact Form Styling */
+#contact-form {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px; /* Add padding around the form */
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Ensures content is centered */
+}
+
+/* Ensure form fields take full width but keep even spacing */
+#contact-form ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+#contact-form li {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+#contact-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+    text-align: left; /* Keep labels aligned left */
+}
+
+#contact-form input,
+#contact-form textarea {
+    width: calc(100% - 20px); /* Adjust width to keep spacing */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#contact-form textarea {
+    resize: vertical;
+}
+
+/* Style only the submit button inside the contact form */
+#contact-form button {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    margin-top: 10px;
+    background: linear-gradient(45deg, #B39429, #D4AF37); /* Gold gradient */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#contact-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#contact-form button:active {
+    transform: translateY(0);
+}
+/* Ensure the contact page follows the same font style and shadow as index.html */
+
+/* Apply font styles to all headings on the contact page */
+#contact-form-section h3, #social-media h3 {
+    font-family: 'LastChristmasPERSONALUSE-Regular', sans-serif;
+    font-size: 36px;
+    line-height: 1.2;
+    color: #CBA135; /* Reflective gold */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); /* Reduced shadow effect */
+    margin-bottom: 15px;
+}
+
+#contact-form-section p, #social-media p {
+    font-family: 'PlaywriteAUSA-Regular', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    text-shadow: none;
+    font-weight: 400;
+    margin: 20px 0;
+}
+
+/* Ensure button styles are consistent */
+#contact-form button, .gradient-button {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(45deg, #B39429, #D4AF37);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#contact-form button:hover, .gradient-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4), 0 4px 6px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(45deg, #D4AF37, #B39429);
+}
+
+/* Ensure input fields have proper styling */
+#contact-form input, #contact-form textarea {
+    font-family: 'PlaywriteAUSA-Regular', sans-serif;
+    font-size: 16px;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* Social Media section matching index.html */
+#social-media {
+    text-align: center;
+    margin-top: 40px;
+}
+
+#social-media h3 {
+    font-size: 32px;
+    color: #CBA135;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+.services-list {
+    list-style-type: disc; /* Default bullet points */
+    list-style-position: inside; /* Aligns bullet points with text */
+    padding-left: 20px; /* Adjust spacing for consistency */
+}
+
+.services-list li {
+    font-size: 18px; /* Make text stand out */
+    font-weight: bold; /* Make it more visible */
+    color: #d4af37; /* Gold color to match the theme */
+    margin-bottom: 8px; /* Adds spacing between items */
+}
+
+.services-list li::marker {
+    font-size: 20px; /* Bigger bullet points */
+    color: #d4af37; /* Gold bullet points */
+}
+
+.services-list {
+    list-style-type: disc; /* Default bullet points */
+    list-style-position: inside; /* Aligns bullet points with text */
+    padding-left: 20px; /* Adjust spacing for consistency */
+}
+
+.services-list li {
+    font-size: 12px; /* Make text stand out */
+    font-weight: bold; /* Make it more visible */
+    color: #d4af37; /* Gold color to match the theme */
+    margin-bottom: 8px; /* Adds spacing between items */
+}
+
+.services-list li::marker {
+    font-size: 16px; /* Bigger bullet points */
+    color: #d4af37; /* Gold bullet points */
+}
+
+.category-title {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-size: 2.3em; /* Slightly larger font size */
+}
+
+.services-list li {
+    color: black;
+    font-size: 16px;
+}
+
+.category-title {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-size: 1.3em; /* Slightly larger font size */
+}
+
+.gallery-item {
+    color: black; /* Ensures gallery text (if applicable) is black */
+}
+.category-title {
+    font-family: 'LastChristmasPERSONALUSE-Regular', sans-serif;
+    font-size: 34px;
+    line-height: 1.4;
+    color: #CBA135;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+    margin-bottom: 15px;
+}
+
+/* Ensure the header stacks logo and navbar properly */
+header {
+    display: flex;
+    flex-direction: column; /* Stacks logo and navbar vertically */
+    align-items: center; /* Centers everything horizontally */
+    width: 100%;
+    padding: 10px 0;
+}
+
+/* Ensure navbar links are centered */
+.nav-links {
+    display: flex;
+    justify-content: center; /* Centers the menu items */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links a:hover {
+    color: #D4AF37; /* Lighter gold on hover */
+}
+
+/* Style the navigation bar */
+.navbar {
+    background-color: white;
+    padding: 0;
+    margin: 0;
+    border-top: 2px solid #D4AF37; /* Gold bar at the top */
+    width: 100vw; /* Make sure it spans the full width of the viewport */
+    box-shadow: none;
+}
+
+/* Styling for navigation buttons */
+.nav-links a {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #CBA135; /* Gold text color */
+    padding: 10px 15px;
+}
+
+/* Change color on hover */
+.nav-links a:hover {
+    color: #D4AF37; /* Slightly lighter gold on hover */
+}
+/* Make header elements align properly */
+.header-container {
+    display: flex;
+    justify-content: space-between; /* Logo on the left, social media on the right */
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+
+/* Adjust the logo size */
+.logo {
+    max-width: 320px; /* Adjust logo size */
+    height: auto;
+}
+
+/* Social media section inside the header */
+.social-media-header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Align social buttons horizontally */
+.social-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Social media icons */
+.social-button {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.service-description {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    line-height: 0.8; /* Reduces spacing between description lines */
+    margin-top: 2px; /* Ensures consistent spacing between descriptions */
+}
+.services-list li {
+    margin-bottom: 20px; /* Keeps spacing between services */
+}
+body {
+    overflow-x: hidden;
+}
+
+.navbar ul li {
+    margin: 10px 0; /* Adds spacing between menu items */
+}
+@media screen and (min-width: 768px) {
+    .navbar ul {
+        flex-direction: row; /* Horizontal layout on bigger screens */
+    }
+}
+main, .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.gradient-button {
+    width: 100%;
+    max-width: 180px; /* Adjusts button width on smaller screens */
+    padding: 12px 16px;
+    font-size: 16px;
+    text-align: center;
+}
+@media screen and (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Adjust grid for smaller screens */
+        gap: 5px;
+    }
+
+    .gallery-item {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Add hover effect */
+ 
+html, body {
+    height: auto !important;
+    overflow: auto !important;
+    scroll-behavior: smooth;
+}
+.top-header {
+    background-color: white;
+    padding: 0 0; /* Reduce padding to bring it closer to navbar */
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 100;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+body {
+    background: url('media/header.png') no-repeat center top;
+    background-size: cover;
+    background-position: center top 200px; /* Push background image down */
+}
+html, body {
+    margin: 0;
+    padding: 0;
+}
+.navbar + * {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 15px; /* Restores the rounded corners */
+    background: white; /* Ensure it has a visible background */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Optional shadow effect */
+}
+main {
+    margin-bottom: 8px; /* Adds space below every <main> */
+}
+
+h2 {
+    margin-top: 10px; /* Reduce space above */
+    margin-bottom: 10px; /* Reduce space below */
+    margin-left: 10px;
+    margin-right: 10px;
+}
+p {
+    margin-bottom: 8px; /* Reduce spacing between paragraphs */
+}
+.container {
+    padding: 10px; /* Reduce spacing inside the content box */
+}
+main {
+    padding: 10px 0; /* Reduce vertical padding */
+    margin: 10px auto; /* Reduce space between <main> sections */
+    max-width: 1200px;
+}
+/* Apply styles only to services.html */
+#services {
+    margin-top: 20px; /* Adds spacing between the services section and <main> */
+    padding: 10px; /* Optional: Adds padding inside services container */
+}
+
+/* Service box styling */
+#services .service-item {
+    display: flex;
+    justify-content: space-between; /* Aligns text left & button right */
+    align-items: center; /* Keeps everything vertically aligned */
+    padding: 15px;
+    border: 2px solid #D4AF37; /* Gold border */
+    border-radius: 10px; /* Rounded corners */
+    margin-bottom: 20px; /* More space between each service */
+    background: #fff; /* White background */
+}
+
+/* Service text on the left */
+#services .service-info {
+    flex: 1; /* Takes available space */
+    text-align: left; /* Align text to the left */
+    padding-right: 10px; /* Creates space between text and button */
+}
+
+/* Service title */
+#services .service-info h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333; /* Dark text */
+}
+
+/* Service description */
+#services .service-description {
+    font-size: 14px;
+    color: #666; /* Slightly lighter text */
+    margin-top: 5px;
+}
+
+/* Book Now button on the right */
+#services .book-button {
+    background: linear-gradient(45deg, #D4AF37, #B39429); /* Gold gradient */
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px; /* Rounded corners */
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover effect for button */
+#services .book-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+/* Smaller filter buttons */
+#filter-buttons .gradient-button {
+    padding: 6px 12px; /* Reduce button size */
+    font-size: 14px; /* Smaller text */
+    border-radius: 25px; /* Keep rounded edges */
+    min-width: 120px; /* Ensure a consistent width */
+}
+
+/* Adjust hover effect to match new size */
+#filter-buttons .gradient-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+/* Match category titles to h2 styling from index.html */
+#services .category-title {
+    font-family: 'LastChristmasPERSONALUSE-Regular', sans-serif;
+    font-size: 34px;
+    line-height: 1.4;
+    color: #CBA135;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+    margin-bottom: 15px;
+}
+main {
+    overflow: visible;
+}
+#how-it-works {
+    background: none !important;  /* Removes background */
+    border: none !important; /* Removes any border */
+    padding: 0 !important; /* Removes padding */
+    margin: 0 auto !important; /* Centers content and removes excess margin */
+    box-shadow: none !important; /* Removes any box-shadow */
+    width: 100%; /* Ensures it takes full width */
+}
+
+#how-it-works main {
+    background: transparent !important; /* Ensure it blends */
+    box-shadow: none !important; /* Remove shadow */
+    padding: 10px 0 !important; /* Adjust padding */
+    margin: 0 auto !important; /* Reset margin */
+}
+#how-it-works h3 {
+    font-family: 'LastChristmasPERSONALUSE-Regular', sans-serif;
+    font-size: 34px;
+    line-height: 1.4;
+    color: #CBA135;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+    margin-bottom: 15px;
+}
+
+#how-it-works p {
+    font-size: 16px;
+    font-family: 'PlaywriteAUSA-Regular', sans-serif;
+    color: #555;
+    text-align: center;
+    margin-bottom: 15px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+#how-it-works {
+    text-align: center;
+    padding: 10px 0; /* Add some spacing */
+}
+@font-face {
+    font-family: 'YourFont';
+    src: url('fonts/Montserrat-Thin.woff2') format('woff2'),
+         url('fonts/Montserrat-Thin.woff') format('woff'),
+         url('fonts/Montserrat-Thin.ttf') format('truetype');
+    font-weight: 50;
+}
+.navbar {
+    font-family: 'YourFont', sans-serif;
+}
+.nav-links a {
+    position: relative; /* Allows layering */
+    display: inline-block;
+    text-align: center;
+    font-family: 'YourFont', sans-serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: rgb(0, 0, 0); /* Ensure text remains visible */
+    padding: 12px 20px;
+    text-decoration: none;
+    z-index: 2; /* Ensures text stays on top */
+}
+
+/* Icon as background using ::before */
+.nav-links a::before {
+    content: "";
+    position: absolute;
+    top: 50%; /* Center icon */
+    left: 30%;
+    transform: translate(-50%, -50%); /* Perfect centering */
+    width: 25px; /* Adjust icon size */
+    height: 25px;
+    background-size: 10px;
+    background-repeat: no-repeat;
+    opacity: 0.2; /* Faded effect */
+    z-index: 1; /* Behind text */
+}
+
+/* Assign unique icons for each button */
+.nav-links li:nth-child(1) a::before {
+    background-image: url('media/icons/home.png');
+}
+.nav-links li:nth-child(2) a::before {
+    background-image: url('media/icons/book.png');
+}
+.nav-links li:nth-child(3) a::before {
+    background-image: url('media/icons/gallery.png');
+}
+.nav-links li:nth-child(4) a::before {
+    background-image: url('media/icons/contact.png');
+}
+.nav-links a {
+    display: flex;
+    align-items: center; /* Ensures text and icon are aligned */
+    text-decoration: none;
+    font-family: 'YourFont', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+    padding: 10px 15px;
+    gap: 6px; /* Space between icon and text */
+}
+
+/* Adjust icon size */
+.nav-icon {
+    width: 18px; /* Adjust size as needed */
+    height: 18px;
+}
+
+@font-face {
+    font-family: 'Montserrat-Thin';
+    src: url('fonts/Montserrat-Thin.woff2') format('woff2'),
+         url('fonts/Montserrat-Thin.woff') format('woff'),
+         url('fonts/Montserrat-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+.gold-bar {
+    background: linear-gradient(to right, #b68d4c, #d4af37); /* Gold gradient */
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-family: 'Montserrat-Thin', sans-serif;
+    font-size: 12px; /* Bigger text */
+    font-weight: 600;
+    padding: 1px 0;
+    height: 30px; /* Smaller bar */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Keeps it above other elements */
+    position: relative; /* Ensures it stays at the top but does not follow scrolling */
+}
+
+/* Ensure the gold bar does not overlap */
+body {
+    padding-bottom: 5px; /* Adjust based on gold bar height */
+}
+
+#video-slider-container {
+    position: relative;
+    width: 1200px; /* Wider slider */
+    height: 420px; /* Restored original height */
+    margin: auto;
+    overflow: hidden;
+}
+
+.video-slider {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(133, 132, 132, 0.3);
+}
+
+.video-slide {
+    min-width: 100%;
+    max-width: 100%;
+    height: 100%;
+    display: none;
+    object-fit: fill; /* Ensures the video fills the space without stretching */
+}
+
+.video-slide.active {
+    display: block;
+}
+
+.video-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    padding-bottom: 5px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #bcb8b8;
+    border-radius: 40%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.dot.active {
+    background-color: #d5b227; /* Gold */
+}
+.contact-details {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the section */
+}
+
+.contact-details li {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Ensures both items are aligned */
+    width: 100%; /* Ensures equal width for both items */
+}
+
+.contact-details li span {
+    width: 90px; /* Ensures 'Email:' and 'WhatsApp:' labels have equal width */
+    text-align: right;
+    display: inline-block;
+}
+
+.contact-details li a img {
+    position: relative;
+    top: 5px; /* Moves the WhatsApp icon down */
+}
+/* Gallery Grid */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin: 10px auto;
+    width: 90%;
+    justify-content: center;
+}
+
+/* Ensure images fit properly */
+.gallery-item {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    object-fit: cover;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Lightbox (Fullscreen Mode) */
+.lightbox {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+/* Close & Navigation Buttons */
+.lightbox .close,
+.lightbox .prev,
+.lightbox .next {
+    position: absolute;
+    font-size: 2rem;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.lightbox .close {
+    top: 20px;
+    right: 30px;
+}
+
+.lightbox .prev {
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lightbox .next {
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+/* Ensure uniform size for all images */
+.gallery-item {
+    width: 200px; /* Fixed width */
+    height: 200px; /* Fixed height */
+    object-fit: cover; /* Ensures all images are cropped uniformly */
+    border-radius: 10px; /* Rounded corners */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+/* Cookie Banner */
+#cookie-banner {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1200px;
+    background: rgba(252, 167, 20, 0.9);
+    color: rgb(38, 38, 38);
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 10000;
+    display: none;
+}
+
+#cookie-banner button {
+    background: #ffea00;
+    color: black;
+    border: none;
+    padding: 12px 12px;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#cookie-banner button:hover {
+    background: #b39429;
+}
+
+#decline-cookies {
+    background: #555;
+    color: white;
+}
+
+#decline-cookies:hover {
+    background: #333;
+}
+/* Terms of Use Page Styling */
+#terms {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Page Title "Terms of Use" */
+#terms h1 {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    color: #d4af37; /* Gold color */
+    margin-bottom: 20px;
+    font-family: 'curvymax-font', sans-serif;
+}
+
+/* Section Titles (e.g., "Acceptance of Terms") */
+#terms h2 {
+    font-size: 24px;
+    font-weight: 700; /* Increase weight */
+    color: #333;
+    margin-top: 20px;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 5px;
+    font-family: 'Montserrat-Thin', sans-serif;
+}
+
+/* Body Text (Paragraphs & Lists without Bullets) */
+#terms p,
+#terms ul {
+    font-size: 16px;
+    line-height: 1.6;
+    color: black;
+    font-family: 'PlaywriteAUSA-Regular', sans-serif;
+}
+
+/* Remove Bullet Points */
+#terms ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+/* Links */
+#terms a {
+    color: #d4af37;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#terms a:hover {
+    text-decoration: underline;
+}
+/* Terms of Use Link Styling */
+.terms-link-container {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.terms-link {
+    font-family: 'Montserrat-Thin', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #d4af37; /* Gold color */
+    text-decoration: none;
+    display: inline-block;
+}
+
+.terms-link:hover {
+    text-decoration: underline;
+}
+@media screen and (max-width: 768px) {
+    .terms-link-container {
+        display: none; /* Hide Terms of Use link on mobile */
+    }
+}
+/* Terms of Use Page Title Styling */
+#terms h1 {
+    font-family: 'LastChristmasPERSONALUSE-Regular', sans-serif;
+    font-size: 34px;
+    line-height: 1.4;
+    color: #CBA135;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+    margin-bottom: 15px;
+}
+/* Style for Left and Right Arrows */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(212, 175, 55, 0.8); /* Gold color with slight transparency */
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: background 0.3s ease, transform 0.2s ease-in-out;
+}
+
+/* Left Arrow Position */
+#prevSlide {
+    left: 20px; /* Adjusted to be positioned on top of the video */
+}
+
+/* Right Arrow Position */
+#nextSlide {
+    right: 20px; /* Adjusted to be positioned on top of the video */
+}
+
+/* Arrow Hover Effect */
+.slider-arrow:hover {
+    background: rgba(212, 175, 55, 1); /* Solid gold on hover */
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Hide Arrows on Mobile */
+@media screen and (max-width: 768px) {
+    .slider-arrow {
+        display: none;
+    }
+}
+.gallery-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery-item video {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Play icon overlay for videos */
+.play-icon {
+    position: absolute;
+    color: white;
+    font-size: 30px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.play-icon:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+/* Ensure gallery grid stays intact */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Maintain 200px size */
+    gap: 10px;
+    width: 90%;
+    margin: auto;
+    justify-content: center;
+}
+
+/* Ensure images and videos in the gallery match the same size */
+.gallery-item {
+    position: relative;
+    width: 100%;
+    max-width: 200px; /* Keep everything uniform */
+    aspect-ratio: 1 / 1; /* Square shape */
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Constrain images properly inside grid */
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Keeps images properly sized */
+}
+
+/* Constrain videos properly inside grid */
+.gallery-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures videos behave like images */
+}
+
+/* Play icon overlay for videos */
+.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 30px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.play-icon:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+/* Lightbox General Styles */
+.lightbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+}
+
+/* Lightbox Content */
+.lightbox img, .lightbox video {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    object-fit: contain;
+    background: black;
+}
+
+/* Lightbox Navigation Buttons */
+.lightbox .prev, .lightbox .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.lightbox .prev { left: 10px; }
+.lightbox .next { right: 10px; }
+
+/* Close Button */
+.lightbox .close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+/* Lightbox General Styles */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Lightbox Content */
+.lightbox img, .lightbox video {
+    max-width: 90%;
+    max-height: 90%;
+    width: auto;
+    height: auto;
+    margin: auto;
+    background: black;
+}
+
+/* Lightbox Navigation Buttons */
+.lightbox .prev, .lightbox .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.lightbox .prev { left: 10px; }
+.lightbox .next { right: 10px; }
+
+/* Close Button */
+.lightbox .close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+.video-gallery video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.video-gallery .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s ease;
+}
+
+.video-gallery .play-button:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+.fullscreen-image {
+    max-width: 90vw;  /* Max 90% of viewport width */
+    max-height: 90vh; /* Max 90% of viewport height */
+    width: auto;
+    height: auto;
+    display: block;
+    margin: auto;
+    object-fit: contain; /* Ensure image scales without distortion */
+}
+.fullscreen-video {
+    max-width: 90vw;  /* Max 90% of viewport width */
+    max-height: 90vh; /* Max 90% of viewport height */
+    width: auto;
+    height: auto;
+    display: block;
+    margin: auto;
+    object-fit: contain; /* Prevent distortion */
+}
+#google-maps {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    padding: 20px 0;
+}
+
+#google-maps iframe {
+    width: 90vw;  /* 90% of viewport width */
+    max-width: 1000px; /* Limit max size */
+    height: 400px; /* Adjust for a balanced look */
+    border-radius: 10px; /* Optional: Rounded corners */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Optional: Light shadow */
+}
+@media screen and (min-width: 1024px) {
+    #contact-form {
+        max-width: 1000px; /* Adjust width as needed */
+        width: 100%; /* Ensures it scales properly */
+    }
+}
+.sidebar-footer {
+    position: absolute;
+    bottom: 20px;  /* Adjust spacing */
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+}
+
+.sidebar-footer a {
+    text-decoration: none;
+    color: #D4AF37; /* Gold color */
+    font-weight: 200;
+    transition: color 0.3s ease;
+}
+
+.sidebar-footer a:hover {
+    color: #B8860B; /* Darker gold on hover */
+}
+.contact-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px; /* Adjust spacing between text and icon */
+}
+
+.contact-whatsapp img {
+    width: 24px; /* Adjust the icon size */
+    height: 24px;
+    vertical-align: middle;
+    position: relative;
+    top: -2px; /* Adjust this value to align properly */
+}
+.contact-email {
+    color: #D4AF37; /* Gold color */
+    font-weight: bold;
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease;
+}
+
+.contact-email:hover {
+    color: #B8860B; /* Darker gold on hover */
+    text-decoration: underline; /* Optional: underline on hover */
+}
+/* Override background image settings for all pages */
+body {
+    background-image: url('media/header.png'); /* update path if needed */
+    background-repeat: repeat;
+    background-size: auto;
+    background-position: top left;
+    background-attachment: fixed;
+}
+
+/* Optional: make sure it looks good on all screen sizes */
+@media (max-width: 768px) {
+    body {
+        background-image: url('media/header.png');
+        background-repeat: repeat;
+        background-size: auto;
+        background-position: top left;
+    }
+}
+/* Floating WhatsApp button in bottom-right corner */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    display: block;
+    cursor: pointer;
+}
+
+.whatsapp-float-icon {
+    height: 85px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover .whatsapp-float-icon {
+    transform: scale(1.1);
+}

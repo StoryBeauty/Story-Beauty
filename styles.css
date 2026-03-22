@@ -2411,3 +2411,9 @@ body {
     background-size: cover;
     background-position: center center;
 }
+#terms {
+    max-width: 1700px;
+    width: calc(100% - 60px);
+    margin: 20px auto;
+    box-sizing: border-box;
+}

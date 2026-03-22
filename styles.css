@@ -2406,3 +2406,8 @@ section {
     width: 100%;
     box-sizing: border-box;
 }
+body {
+    background: url('media/header.png') no-repeat center center fixed;
+    background-size: cover;
+    background-position: center center;
+}
